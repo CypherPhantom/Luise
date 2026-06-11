@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Luise 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <section class="card">
+      <div class="heart">💖</div>
+
+      <h1>Feliz Dia dos Namorados, Luise</h1>
+
+      <p class="message">
+        Essa página foi feita especialmente para você, com carinho, cuidado
+        e pouca criatividade. Ebaaa!!!
+      </p>
+
+      <div class="photo-frame">
+        <div class="glow"></div>
+
+        <img src="foco.jpeg" alt="Luise">
+
+        <div class="floating-hearts">
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+        </div>
+      </div>
+        <span>🌹</span>
+        <p>Um cantinho especial para a Luise</p>
+      </div>
+       </br>
+      <h2>Brincadeira rápida:</h2>
+   
+      <p>Luise, você gostaria de ser a 
+        raspadinha da minha vida? Porque cada dia ao seu lado é uma surpresa especial. 💖</p>
+
+      <div class="buttons">
+        <button class="yes" onclick="showLove()">Sim 💘</button>
+        <button class="no" id="noBtn">Não 😳</button>
+      </div>
+
+      <p id="result"></p>
+    </section>
+  </main>
+
+  <script>
+    function showLove() {
+      document.getElementById("result").innerHTML =
+        "Eu sabia! 💖 Agora oficialmente temos um encontro marcado!";
+    }
+
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    noBtn.addEventListener("click", () => {
+      document.getElementById("result").innerHTML =
+        "Ops... esse botão não estava preparado para essa resposta 😅";
+    });
+  </script>
+
+</body>
+</html>

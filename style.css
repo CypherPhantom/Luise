@@ -1,0 +1,291 @@
+.photo-frame {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-frame::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background: linear-gradient(
+        45deg,
+        #ff006a,
+        #ff4fa3,
+        #ffd6e7,
+        #ff4fa3,
+        #ff006a
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+}
+
+.photo-frame::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    background: #fff;
+    border-radius: 35px;
+}
+
+.photo-frame img {
+    position: relative;
+    z-index: 2;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow:
+        0 0 25px rgba(255, 0, 106, 0.4),
+        0 0 60px rgba(255, 105, 180, 0.4);
+}
+
+.glow {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(
+        circle,
+        rgba(255,105,180,.6),
+        transparent 70%
+    );
+    animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+    0%,100% {
+        transform: scale(1);
+        opacity: .6;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.floating-hearts span {
+    position: absolute;
+    color: #ff2e7a;
+    font-size: 25px;
+    z-index: 3;
+    animation: floatHeart 4s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 65%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 85%;
+    animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+    0% {
+        bottom: 20px;
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 330px;
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4d88, #ffb6c1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  animation: appear 1s ease;
+}
+
+.heart {
+  font-size: 60px;
+  animation: pulse 1.3s infinite;
+}
+
+h1 {
+  color: #d6336c;
+  margin: 15px 0;
+  font-size: 2rem;
+}
+
+.message {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.photo-box {
+  background: #fff0f5;
+  border: 2px dashed #ff69b4;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.photo-box span {
+  font-size: 45px;
+}
+
+.photo-box p {
+  margin-top: 10px;
+  color: #c2185b;
+  font-weight: bold;
+}
+
+h2 {
+  color: #d6336c;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+}
+
+button {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4081;
+  color: white;
+}
+
+.yes:hover {
+  background: #d81b60;
+  transform: scale(1.1);
+}
+
+.no {
+  background: #eee;
+  color: #333;
+  position: relative;
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  color: #d6336c;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 25px 18px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 80%;
+  }
+}
